@@ -1,0 +1,23 @@
+{
+  "name": "mongodb_practice",
+  "version": "1.0.0",
+  "description": "```js\r db.bandas.find(\r   {nombre: {$regex: /^A/, $options: \"i\"}}\r )",
+  "main": "consultas.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlejoNM2402/Festival_de_conciertos_colombia.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlejoNM2402/Festival_de_conciertos_colombia/issues"
+  },
+  "homepage": "https://github.com/AlejoNM2402/Festival_de_conciertos_colombia#readme",
+  "dependencies": {
+    "mongodb": "^6.17.0"
+  }
+}
