@@ -1,6 +1,6 @@
-# 🎤👨‍🎤 Base de datos Festival de Conciertos en Colombia
+# 🎤👨‍🎤Base de datos Festival de Conciertos en Colombia
 
-## 🍃 Consultas:
+## 🍃Consultas:
 
 ### 📑Buscar bandas cuyo nombre comience por "A":
 ```js
@@ -27,10 +27,32 @@ db.asistentes.find(
 ### 📑Buscar asistentes que tengan "Rock" dentro de sus generos favoritos:
 ```js
 db.asistentes.find(
-  {generos_favoritos: {$regex: /Rock/, $options: "i"}}
+  {generos_favoritos: {$in: ["Rock"]}}
 )
 
 ```
 #### Resultado:
-![evidencia](evidencias/Captura%20de%20pantalla%202025-06-19%20112910.png)
+![evidencia](evidencias/Captura%20de%20pantalla%202025-06-19%20113815.png)
+
+
+### 📑Agrupar presentaciones por escenario y contar cuantas hay por cada uno:
+```js
+db.presentaciones.aggregate(
+  {$group: {_id: "$escenario", total: {$sum: 1}}}
+)
+
+```
+#### Resultado:
+![evidencia](evidencias/Captura%20de%20pantalla%202025-06-19%20114530.png)
+
+
+### 📑Calcular el promedio de duración de cada presemtación en minutos:
+```js
+db.presentaciones.aggregate(
+  {$group: {_id: null, promedio_duracion_minutos: {$avg: "$duracion_minutos"}}}
+)
+
+```
+#### Resultado:
+![evidencia](evidencias/Captura%20de%20pantalla%202025-06-19%20120105.png)
 
